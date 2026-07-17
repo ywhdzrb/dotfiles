@@ -9,7 +9,16 @@ TEXT = " ".join(sys.argv[1:]) or subprocess.run(["wl-paste", "--primary"], captu
 if not TEXT:
     exit(0)
 
-RESULT = subprocess.run(["trans", "-b", "-s", "auto", "-t", "zh", TEXT], capture_output=True, text=True, timeout=10).stdout.strip()
+# 尝试 Bing，失败则 Google
+RESULT = ""
+for engine in ("bing", "google"):
+    if RESULT: break
+    try:
+        r = subprocess.run(["trans", "-e", engine, "-b", "-s", "auto", "-t", "zh", TEXT], capture_output=True, text=True, timeout=10)
+        if r.returncode == 0:
+            RESULT = r.stdout.strip()
+    except:
+        pass
 
 w = Gtk.Window(title="translate")
 w.set_decorated(False)
@@ -19,7 +28,7 @@ w.set_resizable(False)
 w.set_border_width(0)
 w.set_type_hint(Gdk.WindowTypeHint.UTILITY)
 w.connect("key-press-event", lambda w, e: Gtk.main_quit() if e.keyval in (Gdk.KEY_Escape, Gdk.KEY_q) else None)
-w.connect("focus-out-event", lambda *a: Gtk.main_quit())
+
 
 css = b"""
 * { font-family: "JetBrainsMono Nerd Font", sans-serif; font-size: 11px; }
@@ -47,7 +56,7 @@ src.set_xalign(0)
 src.set_line_wrap(True)
 box.pack_start(src, False, False, 0)
 
-res = Gtk.Label(label=RESULT or "翻译失败")
+res = Gtk.Label(label=RESULT or "翻译失败（检查网络或 API 限制）")
 res.set_name("result")
 res.set_xalign(0)
 res.set_line_wrap(True)
