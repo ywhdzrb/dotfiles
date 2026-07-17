@@ -50,6 +50,7 @@ link .config/qt5ct/qt5ct.conf
 link .config/qt6ct/qt6ct.conf
 link .config/Kvantum/kvantum.kvconfig
 link .config/environment.d/qt.conf
+link .config/fastfetch/config.jsonc
 link .config/gtk-3.0/settings.ini
 link .config/gtk-4.0/settings.ini
 # 壁纸（Steam Workshop）
