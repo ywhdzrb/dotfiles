@@ -8,10 +8,4 @@ if [ -z "$TEXT" ]; then
   dunstify "📖 OCR 翻译" "未识别到文字"
   exit 1
 fi
-RESULT=$(trans -b -s auto -t zh "$TEXT" 2>/dev/null)
-if [ -n "$RESULT" ]; then
-  dunstify "📖 $TEXT" "$RESULT"
-  echo "$RESULT" | wl-copy
-else
-  dunstify "📖 OCR 翻译" "翻译失败"
-fi
+exec python3 ~/.config/waybar/scripts/translate.py "$TEXT"
