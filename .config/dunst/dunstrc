@@ -1,0 +1,50 @@
+[global]
+    width               = 320
+    height              = 100
+    origin              = top-right
+    offset              = 0x0
+    margin              = 0
+    padding             = 12
+    horizontal_padding  = 12
+    separator_height    = 1
+    corner_radius       = 6
+    icon_size           = 32
+    max_icon_size       = 32
+    line_height         = 0
+    notification_limit  = 8
+    frame_color         = "#00000000"
+    font                = JetBrainsMono Nerd Font 9
+    markup              = full
+
+    timeout             = 8
+    show_age_threshold  = 60
+
+    transparency        = 0
+    mouse_left_click    = close_current
+    mouse_right_click   = close_all
+    progress_bar        = true
+    progress_bar_height = 4
+    progress_bar_frame_width = 0
+    sticky_history      = yes
+    history_length      = 20
+    dmenu               = /usr/bin/dmenu -p dunst:
+
+[urgency_low]
+    background = "#2e3440a6"
+    foreground = "#616e88"
+    frame_color = "#00000000"
+    timeout = 5
+
+[urgency_normal]
+    background = "#2e3440a6"
+    foreground = "#d8dee9"
+    highlight = "#88c0d0"
+    frame_color = "#00000000"
+    timeout = 8
+
+[urgency_critical]
+    background = "#3b4252a6"
+    foreground = "#d8dee9"
+    highlight = "#bf616a"
+    frame_color = "#00000000"
+    timeout = 0

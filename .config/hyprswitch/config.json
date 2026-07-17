@@ -1,0 +1,14 @@
+{
+  "show_window_icons": true,
+  "show_workspace_icon": true,
+  "show_ghost_windows": true,
+  "height": 80,
+  "width": 400,
+  "preview_size": 200,
+  "spacing": 20,
+  "border": 3,
+  "border_active": "#88c0d0",
+  "border_inactive": "#4c566a",
+  "background": "#2e3440d9",
+  "font_size": 12
+}

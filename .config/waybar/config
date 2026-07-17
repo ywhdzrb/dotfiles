@@ -1,0 +1,183 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 0,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/nowplaying"],
+  "modules-right": [
+    "cava",
+    "network",
+    "network#speed",
+    "cpu",
+    "memory",
+    "disk",
+    "custom/gpu",
+    "custom/temp",
+    "pulseaudio",
+    "battery",
+    "clock",
+    "tray"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九"
+    },
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 9
+    }
+  },
+
+  "hyprland/window": {
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": " {usage}%",
+    "tooltip": true,
+    "on-click": "kitty --class=htop htop",
+    "min-length": 5,
+    "width": 5,
+    "align": "center"
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": " {percentage}%",
+    "tooltip-format": "内存使用: {used:0.1f}G/{total:0.1f}G",
+    "min-length": 5,
+    "width": 5,
+    "align": "center"
+  },
+
+  "disk": {
+    "interval": 30,
+    "path": "/",
+    "format": " {percentage_used}%",
+    "tooltip-format": "路径: {path}\n已用: {used}\n可用: {free}\n总计: {total}",
+    "on-click": "dolphin",
+    "min-length": 5,
+    "width": 5,
+    "align": "center"
+  },
+
+  "network": {
+    "interval": 5,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": " {ifname} ({ipaddr})",
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-disconnected": "󰤮 断开连接",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "on-click": "exec setsid uwsm app -- 'kitty' --class=Impala -e impala",
+    "on-click-right": "/home/ywhdzrb/.config/waybar/scripts/network_popup.py"
+  },
+
+  "network#speed": {
+    "interval": 1,
+    "format": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-alt": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "min-length": 22,
+    "width": 22,
+    "align": "center",
+    "tooltip-format": "下载: {bandwidthDownBytes}\n上传: {bandwidthUpBytes}"
+  },
+
+  "custom/gpu": {
+    "exec": "/home/ywhdzrb/.config/waybar/scripts/gpu.sh",
+    "return-type": "text",
+    "interval": 2,
+    "min-length": 5,
+    "width": 5,
+    "align": "center",
+    "on-click": "kitty --class=nvtop nvtop"
+  },
+
+  "custom/temp": {
+    "exec": "/home/ywhdzrb/.config/waybar/scripts/temp.sh",
+    "return-type": "json",
+    "interval": 5,
+    "min-length": 5,
+    "width": 5,
+    "align": "center"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰖁 静音",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "tooltip": false,
+    "min-length": 5,
+    "width": 5,
+    "align": "center"
+  },
+
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{capacity}% 剩余"
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down"
+    }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+
+  "cava": {
+    "cava_config": "/home/ywhdzrb/.config/waybar/cava-raw.conf",
+    "input_delay": 2,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
+
+  "custom/nowplaying": {
+    "exec": "/home/ywhdzrb/.config/waybar/scripts/nowplaying.sh",
+    "exec-rem": true,
+    "return-type": "text",
+    "escape": true,
+    "max-length": 120,
+    "on-click-right": "/home/ywhdzrb/.config/waybar/scripts/music_popup.py"
+  }
+}

@@ -1,0 +1,10 @@
+/* colors - Nord theme (waybar) */
+
+* {
+  al:   #00000000;
+  bg:   #2e3440ff;
+  bga:  #00000000;
+  fg:   #d8dee9ff;
+  ac:   #88c0d0ff;
+  se:   #81a1c1ff;
+}

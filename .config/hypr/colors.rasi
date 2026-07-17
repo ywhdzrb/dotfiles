@@ -1,0 +1,193 @@
+/* colors - Nord theme */
+
+* {
+  /* Basic colors */
+  al:   #00000000;
+  bg:   #2e3440ff;
+  bga:  #00000000;
+  fg:   #d8dee9ff;
+  ac:   #88c0d0ff;
+  se:   #81a1c1ff;
+  
+  /* Selection colors */
+  sel-bg: #434c5eff;
+  sel-fg: #d8dee9ff;
+  
+  /* Cursor colors */
+  cursor: #d8dee9ff;
+  cursor-text: #3b4252ff;
+  
+  /* Border colors */
+  active-border: #81a1c1ff;
+  inactive-border: #4c566aff;
+  bell-border: #88c0d0ff;
+  
+  /* Tab colors */
+  active-tab-fg: #3b4252ff;
+  active-tab-bg: #88c0d0ff;
+  inactive-tab-fg: #e5e9f0ff;
+  inactive-tab-bg: #4c566aff;
+  tab-bar-bg: #3b4252ff;
+  
+  /* Mark colors */
+  mark1-fg: #3b4252ff;
+  mark1-bg: #88c0d0ff;
+  mark2-fg: #3b4252ff;
+  mark2-bg: #bf616aff;
+  mark3-fg: #3b4252ff;
+  mark3-bg: #ebcb8bff;
+  
+  /* 16-color palette */
+  /* black */
+  color0: #3b4252ff;
+  color8: #4c566aff;
+  
+  /* red */
+  color1: #bf616aff;
+  color9: #bf616aff;
+  
+  /* green */
+  color2: #a3be8cff;
+  color10: #a3be8cff;
+  
+  /* yellow */
+  color3: #ebcb8bff;
+  color11: #d08770ff;
+  
+  /* blue */
+  color4: #81a1c1ff;
+  color12: #5e81acff;
+  
+  /* magenta */
+  color5: #b48eadff;
+  color13: #b48eadff;
+  
+  /* cyan */
+  color6: #88c0d0ff;
+  color14: #8fbcbbff;
+  
+  /* white */
+  color7: #e5e9f0ff;
+  color15: #eceff4ff;
+  
+  /* Additional Nord colors */
+  nord0: #2e3440ff;   /* Polar Night - Darkest */
+  nord1: #3b4252ff;   /* Polar Night */
+  nord2: #434c5eff;   /* Polar Night */
+  nord3: #4c566aff;   /* Polar Night - Lightest */
+  nord4: #d8dee9ff;   /* Snow Storm - Dark */
+  nord5: #e5e9f0ff;   /* Snow Storm */
+  nord6: #eceff4ff;   /* Snow Storm - Light */
+  nord7: #8fbcbbff;   /* Frost - Greenish */
+  nord8: #88c0d0ff;   /* Frost - Cyan */
+  nord9: #81a1c1ff;   /* Frost - Blue */
+  nord10: #5e81acff;  /* Frost - Dark Blue */
+  nord11: #bf616aff;  /* Aurora - Red */
+  nord12: #d08770ff;  /* Aurora - Orange */
+  nord13: #ebcb8bff;  /* Aurora - Yellow */
+  nord14: #a3be8cff;  /* Aurora - Green */
+  nord15: #b48eadff;  /* Aurora - Purple */
+  
+  /* Extended Nord color palette - Pink and Purple variants */
+  /* Pink variations */
+  nord-pink-light: #e5b4c2ff;   /* Light pink - subtle accent */
+  nord-pink: #d8a0b0ff;         /* Medium pink */
+  nord-pink-dark: #c48b9cff;    /* Dark pink */
+  
+  /* Purple variations */
+  nord-purple-light: #c9b4d8ff; /* Light purple */
+  nord-purple: #b48eadff;       /* Standard Nord purple */
+  nord-purple-dark: #9a7ba6ff;  /* Dark purple */
+  nord-purple-deep: #7d5a8cff;  /* Deep purple */
+  
+  /* Magenta variations */
+  nord-magenta-light: #e0b4d8ff; /* Light magenta */
+  nord-magenta: #d8a0c8ff;       /* Medium magenta */
+  nord-magenta-dark: #c48bb4ff;  /* Dark magenta */
+  
+  /* Lavender variations */
+  nord-lavender-light: #e8e4f0ff; /* Very light lavender */
+  nord-lavender: #d4c8e8ff;       /* Light lavender */
+  nord-lavender-medium: #c0b0d8ff; /* Medium lavender */
+  
+  /* Extended color palette for UI elements */
+  /* Status colors */
+  nord-success: #a3be8cff;      /* Success green */
+  nord-warning: #ebcb8bff;      /* Warning yellow */
+  nord-error: #bf616aff;        /* Error red */
+  nord-info: #81a1c1ff;         /* Info blue */
+  
+  /* Gradient colors */
+  nord-gradient-start: #5e81acff; /* Gradient start - dark blue */
+  nord-gradient-middle: #81a1c1ff; /* Gradient middle - medium blue */
+  nord-gradient-end: #88c0d0ff;   /* Gradient end - cyan */
+  
+  /* Special accent colors */
+  nord-accent-pink: #d8a0b0ff;   /* Pink accent */
+  nord-accent-purple: #b48eadff; /* Purple accent */
+  nord-accent-teal: #88c0d0ff;   /* Teal accent */
+  nord-accent-orange: #d08770ff;  /* Orange accent */
+  
+  /* Background variations */
+  nord-bg-light: #3b4252ff;      /* Light background */
+  nord-bg-medium: #2e3440ff;     /* Medium background */
+  nord-bg-dark: #242933ff;       /* Dark background */
+  
+  /* Text variations */
+  nord-text-primary: #eceff4ff;   /* Primary text */
+  nord-text-secondary: #e5e9f0ff; /* Secondary text */
+  nord-text-tertiary: #d8dee9ff;  /* Tertiary text */
+  nord-text-muted: #4c566aff;     /* Muted text */
+  
+  /* Transparency variants */
+  /* 80% transparency */
+  nord-lavender-light80: #e8e4f0cc;   /* Very light lavender - 80% */
+  nord-pink-light80: #e5b4c2cc;       /* Light pink - 80% */
+  nord-pink80: #d8a0b0cc;             /* Medium pink - 80% */
+  nord380: #4c566acc;                 /* Light gray - 80% */
+  nord690: #eceff4e6;                 /* Light white - 90% */
+  nord990: #81a1c1e6;                 /* Light blue - 90% */
+  nord-pink-light90: #e5b4c2e6;       /* Light pink - 90% */
+  
+  /* 70% transparency */
+  nord-lavender-light70: #e8e4f0b3;   /* Very light lavender - 70% */
+  nord-pink-light70: #e5b4c2b3;       /* Light pink - 70% */
+  nord670: #eceff4b3;                 /* Light white - 70% */
+  nord970: #81a1c1b3;                 /* Light blue - 70% */
+  
+  /* 60% transparency */
+  nord-lavender-light60: #e8e4f099;   /* Very light lavender - 60% */
+  nord-pink-light60: #e5b4c299;       /* Light pink - 60% */
+  nord660: #eceff499;                 /* Light white - 60% */
+  nord960: #81a1c199;                 /* Light blue - 60% */
+  
+  /* 50% transparency */
+  nord-lavender-light50: #e8e4f080;   /* Very light lavender - 50% */
+  nord-pink-light50: #e5b4c280;       /* Light pink - 50% */
+  nord650: #eceff480;                 /* Light white - 50% */
+  nord950: #81a1c180;                 /* Light blue - 50% */
+  
+  /* 40% transparency */
+  nord-lavender-light40: #e8e4f066;   /* Very light lavender - 40% */
+  nord-pink-light40: #e5b4c266;       /* Light pink - 40% */
+  nord640: #eceff466;                 /* Light white - 40% */
+  nord940: #81a1c166;                 /* Light blue - 40% */
+  
+  /* 30% transparency */
+  nord-lavender-light30: #e8e4f04d;   /* Very light lavender - 30% */
+  nord-pink-light30: #e5b4c24d;       /* Light pink - 30% */
+  nord630: #eceff44d;                 /* Light white - 30% */
+  nord930: #81a1c14d;                 /* Light blue - 30% */
+  
+  /* 20% transparency */
+  nord-lavender-light20: #e8e4f033;   /* Very light lavender - 20% */
+  nord-pink-light20: #e5b4c233;       /* Light pink - 20% */
+  nord620: #eceff433;                 /* Light white - 20% */
+  nord920: #81a1c133;                 /* Light blue - 20% */
+  
+  /* 10% transparency */
+  nord-lavender-light10: #e8e4f01a;   /* Very light lavender - 10% */
+  nord-pink-light10: #e5b4c21a;       /* Light pink - 10% */
+  nord610: #eceff41a;                 /* Light white - 10% */
+  nord910: #81a1c11a;                 /* Light blue - 10% */
+}

@@ -1,0 +1,44 @@
+# 必须
+hyprland
+waybar-cava
+kitty
+rofi
+dunst
+swappy
+grim
+slurp
+flameshot
+qt5ct
+qt6ct
+kvantum
+nwg-look
+nordic-theme-git
+Papirus-icon-theme
+tesseract
+tesseract-data-chi_sim
+tesseract-data-eng
+wl-clipboard
+libinput-gestures
+libinput-tools
+imagemagick
+python-gobject
+gtk3
+gtk4
+
+# 壁纸
+linux-wallpaperengine-git
+
+# 字体
+ttf-jetbrains-mono-nerd
+noto-fonts-cjk
+noto-fonts-emoji
+
+# 推荐
+hyprswitch
+playerctl
+cava
+tlrc
+pavucontrol
+nm-connection-editor
+thunar
+btop
