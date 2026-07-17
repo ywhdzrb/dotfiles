@@ -6,9 +6,9 @@ Nord 主题 Hyprland 桌面配置。
 
 | 桌面 | Waybar 功能 |
 |:---:|:---:|
-| ![desktop](screenshot-desktop.png) | ![waybar](screenshot-waybar.png) |
-| **Rofi 菜单** | **Alt+Tab 切换** |
-| ![rofi](screenshot-rofi.png) | ![alt-tab](screenshot-alt-tab.png) |
+| ![desktop](screenshot-desktop.png) | ![waybar](screenshot-waybar-music.png) |
+| **WiFi 管理** | **Alt+Tab 切换** |
+| ![wifi](screenshot-waybar-wifi.png) | ![alt-tab](screenshot-alt-tab.png) |
 
 ## 快速安装
 
