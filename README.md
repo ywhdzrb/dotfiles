@@ -9,7 +9,7 @@ Nord 主题 Hyprland 桌面配置。
 ## 快速安装
 
 ```bash
-git clone https://github.com/YOUR_USER/dotfiles ~/dotfiles
+git clone https://github.com/ywhdzrb/dotfiles ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
