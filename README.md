@@ -4,7 +4,11 @@ Nord 主题 Hyprland 桌面配置。
 
 ## 截图
 
-...
+| 桌面 | Waybar 功能 |
+|:---:|:---:|
+| ![desktop](screenshot-desktop.png) | ![waybar](screenshot-waybar.png) |
+| **Rofi 菜单** | **Alt+Tab 切换** |
+| ![rofi](screenshot-rofi.png) | ![alt-tab](screenshot-alt-tab.png) |
 
 ## 快速安装
 
