@@ -9,16 +9,36 @@ TEXT = " ".join(sys.argv[1:]) or subprocess.run(["wl-paste", "--primary"], captu
 if not TEXT:
     exit(0)
 
-# 尝试 Bing，失败则 Google
+# AI 翻译（DeepSeek）
+import urllib.request, json, os
 RESULT = ""
-for engine in ("bing", "google"):
-    if RESULT: break
+api_key = ""
+sf = os.path.expanduser("~/.secrets")
+if os.path.exists(sf):
+    for l in open(sf):
+        if "ANTHROPIC_AUTH_TOKEN" in l and "=" in l:
+            api_key = l.split("=", 1)[1].strip().strip("'\"")
+if api_key:
     try:
-        r = subprocess.run(["trans", "-e", engine, "-b", "-s", "auto", "-t", "zh", TEXT], capture_output=True, text=True, timeout=10)
-        if r.returncode == 0:
-            RESULT = r.stdout.strip()
+        b = json.dumps({"model": "deepseek-chat", "max_tokens": 1000,
+            "messages": [{"role": "user", "content": f"请将以下内容翻译成中文，只返回翻译结果：\n\n{TEXT}"}]}).encode()
+        r = json.loads(urllib.request.urlopen(urllib.request.Request(
+            "https://api.deepseek.com/v1/chat/completions", data=b,
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"}), timeout=15).read())
+        RESULT = r.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
     except:
         pass
+
+# AI 失败则降级 Bing/Google
+if not RESULT:
+    for engine in ("bing", "google"):
+        try:
+            r = subprocess.run(["trans", "-e", engine, "-b", "-s", "auto", "-t", "zh", TEXT], capture_output=True, text=True, timeout=10)
+            if r.returncode == 0 and r.stdout.strip():
+                RESULT = r.stdout.strip()
+                break
+        except:
+            pass
 
 w = Gtk.Window(title="translate")
 w.set_decorated(False)
