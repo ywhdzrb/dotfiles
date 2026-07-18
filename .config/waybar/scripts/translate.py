@@ -61,35 +61,23 @@ def stream_ai():
         req = urllib.request.Request("https://api.deepseek.com/v1/chat/completions", data=body,
             headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"})
         r = urllib.request.urlopen(req, timeout=30)
-        buf = ""
         full = ""
-        while True:
-            chunk = r.read(1).decode()
-            if not chunk: break
-            buf += chunk
-            if buf.endswith("\n\n"):
-                for line in buf.strip().split("\n"):
-                    if line.startswith("data: "):
-                        data = line[6:]
-                        if data.strip() == "[DONE]": break
-                        try:
-                            d = json.loads(data)
-                            delta = d.get("choices", [{}])[0].get("delta", {}).get("content", "")
-                            if delta:
-                                full += delta
-                                GLib.idle_add(res.set_text, full)
-                        except: pass
-                buf = ""
+        for line_bytes in r:
+            line = line_bytes.decode().strip()
+            if line.startswith("data: "):
+                data = line[6:].strip()
+                if data == "[DONE]": break
+                try:
+                    d = json.loads(data)
+                    delta = d.get("choices", [{}])[0].get("delta", {}).get("content", "")
+                    if delta:
+                        full += delta
+                        GLib.idle_add(res.set_text, full)
+                except: pass
         if not full:
-            r2 = json.loads(urllib.request.urlopen(urllib.request.Request(
-                "https://api.deepseek.com/v1/chat/completions",
-                data=json.dumps({"model": "deepseek-chat", "max_tokens": 1000,
-                    "messages": [{"role": "user", "content": f"请将以下内容翻译成中文，只返回翻译结果：\n\n{TEXT}"}]}).encode(),
-                headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"}), timeout=15).read())
-            full = r2.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
-            GLib.idle_add(res.set_text, full or "翻译失败")
+            raise Exception("empty response")
     except Exception as e:
-        GLib.idle_add(res.set_text, f"AI 失败，降级中...")
+        GLib.idle_add(res.set_text, f"AI 失败 ({type(e).__name__})，降级中...")
         fallback()
 
 def fallback():
